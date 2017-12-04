@@ -2,17 +2,17 @@
 #define RGKEEPER_H
 
 #include "role.h"
-#include "minho_team_ros/pose.h"
-#include "minho_team_ros/goalKeeperInfo.h"
+#include "mtmsl_common/pose.h"
+#include "mtmsl_common/goalKeeperInfo.h"
 
 typedef struct spotArea{
    float range[4];
-   minho_team_ros::pose posr;
-   minho_team_ros::pose posl;
+   mtmsl_common::pose posr;
+   mtmsl_common::pose posl;
 }spotArea;
 
-using minho_team_ros::pose;
-using minho_team_ros::goalKeeperInfo;
+using mtmsl_common::pose;
+using mtmsl_common::goalKeeperInfo;
 
 class RoleGoalKeeper : public Role
 {
@@ -45,7 +45,7 @@ private:
    // 0 - xmin, 1 - xmax, 2 - ymin, 3 - ymax
    // for right side field
    std::vector<spotArea> spot_areas;   
-   minho_team_ros::pose impact;
+   mtmsl_common::pose impact;
 
    //remove later
    ros::Publisher gk_pub;

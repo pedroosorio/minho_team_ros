@@ -2,8 +2,8 @@
 #include "ros/ros.h"
 //Application includes
 #include <QCoreApplication>
-#include "minho_team_ros/hardwareInfo.h"
-#include "minho_team_ros/robotInfo.h"
+#include "mtmsl_common/hardwareInfo.h"
+#include "mtmsl_common/robotInfo.h"
 #include "localization.h"
 
 //Network includes for getRobotIdByIP()
@@ -21,8 +21,8 @@
 
 using namespace ros;
 using namespace cv;
-using minho_team_ros::hardwareInfo; //Namespace for hardware information msg - SUBSCRIBING
-using minho_team_ros::robotInfo; //Namespace for vision information msg - PUBLISHING
+using mtmsl_common::hardwareInfo; //Namespace for hardware information msg - SUBSCRIBING
+using mtmsl_common::robotInfo; //Namespace for vision information msg - PUBLISHING
 
 int getRobotIdByIP();
 

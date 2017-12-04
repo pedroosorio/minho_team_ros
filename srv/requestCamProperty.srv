@@ -1,5 +1,0 @@
-#This message allows to set and get Camera Properties values
-cameraProperty property
-bool is_set
----
-cameraProperty property

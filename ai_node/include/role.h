@@ -1,18 +1,18 @@
 #ifndef ROLE_H
 #define ROLE_H
 
-#include "minho_team_ros/aiInfo.h"
-#include "minho_team_ros/robotInfo.h"
-#include "minho_team_ros/baseStationInfo.h"
-#include "minho_team_ros/goalKeeperInfo.h"
+#include "mtmsl_common/aiInfo.h"
+#include "mtmsl_common/robotInfo.h"
+#include "mtmsl_common/baseStationInfo.h"
+#include "mtmsl_common/goalKeeperInfo.h"
 #include <ros/ros.h>
 #include "Utils/types.h"
 #include <iostream>
 
-using minho_team_ros::aiInfo;
-using minho_team_ros::baseStationInfo;
-using minho_team_ros::robotInfo;
-using minho_team_ros::goalKeeperInfo;
+using mtmsl_common::aiInfo;
+using mtmsl_common::baseStationInfo;
+using mtmsl_common::robotInfo;
+using mtmsl_common::goalKeeperInfo;
 
 typedef struct vec2d{
    float x,y;

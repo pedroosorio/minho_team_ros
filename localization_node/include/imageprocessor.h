@@ -8,14 +8,14 @@
 #include "Vec.h"
 #include "blackflycam.h"
 #include "ros/ros.h"
-#include "minho_team_ros/mirrorConfig.h"
-#include "minho_team_ros/visionHSVConfig.h"
-#include "minho_team_ros/imageConfig.h"
-#include "minho_team_ros/cameraProperty.h"
-#include "minho_team_ros/PID.h"
-#include "minho_team_ros/ROI.h"
-#include "minho_team_ros/worldConfig.h"
-#include "minho_team_ros/position.h"
+#include "mtmsl_common/mirrorConfig.h"
+#include "mtmsl_common/visionHSVConfig.h"
+#include "mtmsl_common/imageConfig.h"
+#include "mtmsl_common/cameraProperty.h"
+#include "mtmsl_common/PID.h"
+#include "mtmsl_common/ROI.h"
+#include "mtmsl_common/worldConfig.h"
+#include "mtmsl_common/position.h"
 #include <iostream>
 #include <vector>
 #include "Blob.h"
@@ -24,14 +24,14 @@
 #define CALL_MEMBER_FN(object,ptrToMember)  ((object).*(ptrToMember))
 
 using namespace std;
-using minho_team_ros::mirrorConfig;
-using minho_team_ros::visionHSVConfig;
-using minho_team_ros::imageConfig;
-using minho_team_ros::cameraProperty;
-using minho_team_ros::PID;
-using minho_team_ros::ROI;
-using minho_team_ros::worldConfig;
-using minho_team_ros::position;
+using mtmsl_common::mirrorConfig;
+using mtmsl_common::visionHSVConfig;
+using mtmsl_common::imageConfig;
+using mtmsl_common::cameraProperty;
+using mtmsl_common::PID;
+using mtmsl_common::ROI;
+using mtmsl_common::worldConfig;
+using mtmsl_common::position;
 
 class ImageProcessor
 {
@@ -47,7 +47,7 @@ public:
    /* Image Output Functions */
    Mat *getImage(bool *success); // Returns camera image pointer
    Mat *getStaticImage(bool *success); // Returns static image pointer
-   void getBinary(Mat *in,  minho_team_ros::label labelconf); // Returns thresholded HSV image
+   void getBinary(Mat *in,  mtmsl_common::label labelconf); // Returns thresholded HSV image
    void getSegmentedImage(Mat *buffer); // Returns buffer's segmented image
    void drawInterestInfo(Mat *buffer);
    void drawWorldInfo(Mat *buffer);
@@ -68,7 +68,7 @@ public:
    bool writeLookUpTable(); // Writes look up table to file
    void resetLookUpTable(); // Resets defined look up table
    void generateLookUpTable(); // Generates look up table based on values' ranges
-   void updateLabelLutConf(LABEL_t label,minho_team_ros::label lb_conf);
+   void updateLabelLutConf(LABEL_t label,mtmsl_common::label lb_conf);
    int getClassifier(int x,int y); // Returns classifier given a pixel and LUT configuration
 
    /* Camera-Robot Information */

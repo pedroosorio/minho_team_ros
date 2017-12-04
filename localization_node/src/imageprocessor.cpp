@@ -652,7 +652,7 @@ Mat *ImageProcessor::getStaticImage(bool *success)
 }
 
 // Returns binary image of the buffer, given YUV(or HSV) ranges
-void ImageProcessor::getBinary(Mat *in, minho_team_ros::label labelconf)
+void ImageProcessor::getBinary(Mat *in, mtmsl_common::label labelconf)
 {
     //Returns binary representation of a certain range
     Vec3b *pixel; // iterator to run through captured image
@@ -797,7 +797,7 @@ bool ImageProcessor::readLookUpTable()
             }
 
             LABEL_t label;
-            minho_team_ros::label *lb;
+            mtmsl_common::label *lb;
             if(label_name=="FIELD"){
                lb = &lutconfig.field;
             } else if(label_name=="LINE"){
@@ -955,9 +955,9 @@ void ImageProcessor::generateLookUpTable()
             }
 }
 
-void ImageProcessor::updateLabelLutConf(LABEL_t label,minho_team_ros::label lb_conf)
+void ImageProcessor::updateLabelLutConf(LABEL_t label,mtmsl_common::label lb_conf)
 {
-   minho_team_ros::label *lb;
+   mtmsl_common::label *lb;
    if(label==FIELD) lb = &lutconfig.field;
    else if(label==LINE) lb = &lutconfig.line;
    else if(label==BALL) lb = &lutconfig.ball;

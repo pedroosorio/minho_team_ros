@@ -13,6 +13,7 @@ if(${username} STREQUAL pi)
 	   std_msgs
 	   message_generation	
 	   genmsg
+	   mtmsl_common
    )
 else()
    find_package(catkin REQUIRED COMPONENTS
@@ -23,6 +24,7 @@ else()
 	genmsg	
 	cv_bridge
 	image_transport
+	mtmsl_common
    )
 endif()
 
@@ -60,57 +62,6 @@ endif()
 ##   * uncomment the generate_messages entry below
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
-add_message_files(
-		FILES
-		pose.msg
-		position.msg
-      controlInfo.msg
-      robotInfo.msg
-      refBoxInfo.msg
-      teleop.msg
-      hardwareInfo.msg
-      range.msg
-      label.msg
-      visionHSVConfig.msg
-      mirrorConfig.msg
-      imageConfig.msg
-      imuConfig.msg
-      omniConfig.msg
-      velocity.msg
-      interestPoint.msg
-      goalKeeperInfo.msg
-      interAgentInfo.msg
-      aiInfo.msg
-      controlConfig.msg
-      visualizerConfig.msg
-      pathData.msg
-      segment.msg
-      PID.msg
-      cameraProperty.msg
-      ControlerError.msg
-      ROI.msg
-      baseStationInfo.msg
-      obstacle.msg
-      worldConfig.msg
-)
-
-## Generate services in the 'srv' folder
- add_service_files(
-   FILES
-   requestOmniVisionConf.srv
-   requestResetEncoders.srv
-   requestResetIMU.srv
-   requestIMULinTable.srv
-   requestOmniProps.srv
-   requestReloc.srv
-   requestKick.srv
-   requestImage.srv
-   requestExtendedDebug.srv
-   requestControlConfig.srv
-   requestCamPID.srv
-   requestCamProperty.srv
-   requestROI.srv
- )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -159,13 +110,13 @@ if(${username} STREQUAL pi)
    catkin_package(
 		#  INCLUDE_DIRS include
 		#  LIBRARIES minho_team
-		CATKIN_DEPENDS message_runtime std_msgs
+		CATKIN_DEPENDS message_runtime std_msgs mtmsl_common
 	)
 else()
 	catkin_package(
 		#  INCLUDE_DIRS include
 		#  LIBRARIES minho_team
-		CATKIN_DEPENDS message_runtime std_msgs sensor_msgs
+		CATKIN_DEPENDS message_runtime std_msgs sensor_msgs mtmsl_common
 		DEPENDS sensor_msgs
 	)
 endif()
@@ -317,7 +268,7 @@ else()
    target_compile_features(localization_node PRIVATE cxx_range_for)
    set(minho_LIBRARIES ${MLIB_DIR}/libGigECam.so ${MLIB_DIR}/libRLE.so ${MLIB_DIR}/libBlob.so)
    target_link_libraries(localization_node ${catkin_LIBRARIES} ${qt_LIBRARIES} ${opencv_LIBRARIES} ${flycap_LIBRARIES} ${minho_LIBRARIES})
-   add_dependencies(localization_node ${PROJECT_NAME}_gencpp GigECam RLE)
+   add_dependencies(localization_node mtmsl_common_gencpp GigECam RLE)
    ########################################
 
    ############### COMS NODE ##############
@@ -328,7 +279,7 @@ else()
    set_target_properties(coms_node PROPERTIES COMPILE_FLAGS "-fPIC")
    target_compile_features(coms_node PRIVATE cxx_range_for)
    target_link_libraries(coms_node ${catkin_LIBRARIES} )
-   add_dependencies(coms_node ${PROJECT_NAME}_gencpp)
+   add_dependencies(coms_node mtmsl_common_gencpp)
    ########################################
 
    ############# CONTROL NODE #############
@@ -343,7 +294,7 @@ else()
    set_target_properties(control_node PROPERTIES COMPILE_FLAGS "-fPIC")
    target_compile_features(control_node PRIVATE cxx_range_for)
    target_link_libraries(control_node ${catkin_LIBRARIES} ${qt_LIBRARIES} ${cgal_LIBRARIES} libsisl.a)
-   add_dependencies(control_node ${PROJECT_NAME}_gencpp)
+   add_dependencies(control_node mtmsl_common_gencpp)
    ########################################
 
 
@@ -358,7 +309,7 @@ else()
 	set_target_properties(ai_node PROPERTIES COMPILE_FLAGS "-fPIC")
 	target_compile_features(ai_node PRIVATE cxx_range_for)
 	target_link_libraries(ai_node ${catkin_LIBRARIES} ${qt_LIBRARIES})
-	add_dependencies(ai_node ${PROJECT_NAME}_gencpp)
+	add_dependencies(ai_node mtmsl_common_gencpp)
 	########################################
 	
 	############# GOALKEEPER NODE #############

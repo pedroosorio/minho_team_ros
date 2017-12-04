@@ -1,4 +1,0 @@
-#This service allows to request a relocalization (global) by the localization node
-bool dummy_var
----
-bool dummy_var

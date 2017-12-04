@@ -20,19 +20,19 @@
 #include "rsupstriker.h"
 #include <sstream>
 #include <ros/ros.h>
-#include <minho_team_ros/baseStationInfo.h>
-#include <minho_team_ros/robotInfo.h>
-#include <minho_team_ros/goalKeeperInfo.h>
-#include <minho_team_ros/aiInfo.h>
+#include <mtmsl_common/baseStationInfo.h>
+#include <mtmsl_common/robotInfo.h>
+#include <mtmsl_common/goalKeeperInfo.h>
+#include <mtmsl_common/aiInfo.h>
 #include <QFile>
 #include <QTextStream>
 #include "Utils/types.h"
 
 using namespace ros;
-using minho_team_ros::aiInfo;
-using minho_team_ros::baseStationInfo;
-using minho_team_ros::robotInfo;
-using minho_team_ros::goalKeeperInfo;
+using mtmsl_common::aiInfo;
+using mtmsl_common::baseStationInfo;
+using mtmsl_common::robotInfo;
+using mtmsl_common::goalKeeperInfo;
 
 class AI
 {

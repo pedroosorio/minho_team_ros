@@ -4,23 +4,23 @@
 #include <QObject>
 #include "imageprocessor.h"
 #include "configserver.h"
-#include "minho_team_ros/hardwareInfo.h"
-#include "minho_team_ros/robotInfo.h"
-#include "minho_team_ros/requestReloc.h"
-#include "minho_team_ros/interestPoint.h"
-#include "minho_team_ros/requestExtendedDebug.h"
-#include "minho_team_ros/obstacle.h"
-#include "minho_team_ros/baseStationInfo.h"
+#include "mtmsl_common/hardwareInfo.h"
+#include "mtmsl_common/robotInfo.h"
+#include "mtmsl_common/requestReloc.h"
+#include "mtmsl_common/interestPoint.h"
+#include "mtmsl_common/requestExtendedDebug.h"
+#include "mtmsl_common/obstacle.h"
+#include "mtmsl_common/baseStationInfo.h"
 
 using namespace ros;
 using namespace cv;
-using minho_team_ros::hardwareInfo; //Namespace for hardware information msg - SUBSCRIBING
-using minho_team_ros::robotInfo; //Namespace for vision information msg - PUBLISHING
-using minho_team_ros::requestReloc;
-using minho_team_ros::interestPoint;
-using minho_team_ros::requestExtendedDebug;
-using minho_team_ros::obstacle;
-using minho_team_ros::baseStationInfo;
+using mtmsl_common::hardwareInfo; //Namespace for hardware information msg - SUBSCRIBING
+using mtmsl_common::robotInfo; //Namespace for vision information msg - PUBLISHING
+using mtmsl_common::requestReloc;
+using mtmsl_common::interestPoint;
+using mtmsl_common::requestExtendedDebug;
+using mtmsl_common::obstacle;
+using mtmsl_common::baseStationInfo;
 
 class Localization : public QObject
 {

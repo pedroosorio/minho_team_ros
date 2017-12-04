@@ -111,7 +111,7 @@ void ConfigServer::processWorldConfig(const worldConfig::ConstPtr &msg)
    else KalmanConfmsg = *msg;
 }
 
-bool ConfigServer::omniVisionConfService(minho_team_ros::requestOmniVisionConf::Request &req,minho_team_ros::requestOmniVisionConf::Response &res)
+bool ConfigServer::omniVisionConfService(mtmsl_common::requestOmniVisionConf::Request &req,mtmsl_common::requestOmniVisionConf::Response &res)
 {
    ROS_INFO("requestOmniVisionConf by %s",req.request_node_name.c_str());
    //get data from

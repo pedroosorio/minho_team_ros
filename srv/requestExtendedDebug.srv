@@ -1,4 +1,0 @@
-#This message allows to request extended debug information from a robot
-bool requested
----
-bool success

@@ -1,15 +1,15 @@
 //ROS includes
 #include "ros/ros.h"
 //Application includes
-#include "minho_team_ros/hardwareInfo.h"
-#include "minho_team_ros/robotInfo.h"
-#include "minho_team_ros/aiInfo.h"
-#include "minho_team_ros/goalKeeperInfo.h"
-#include "minho_team_ros/interAgentInfo.h"
-#include "minho_team_ros/position.h"
-#include "minho_team_ros/baseStationInfo.h"
-#include "minho_team_ros/requestReloc.h"
-#include "minho_team_ros/requestResetIMU.h"
+#include "mtmsl_common/hardwareInfo.h"
+#include "mtmsl_common/robotInfo.h"
+#include "mtmsl_common/aiInfo.h"
+#include "mtmsl_common/goalKeeperInfo.h"
+#include "mtmsl_common/interAgentInfo.h"
+#include "mtmsl_common/position.h"
+#include "mtmsl_common/baseStationInfo.h"
+#include "mtmsl_common/requestReloc.h"
+#include "mtmsl_common/requestResetIMU.h"
 #include "std_msgs/UInt8.h"
 #include <iostream>
 #include <string.h>
@@ -36,15 +36,15 @@ typedef struct udp_packet{
 }udp_packet;
 
 using namespace ros;
-using minho_team_ros::hardwareInfo; //Namespace for hardwareInfo msg - SUBSCRIBING
-using minho_team_ros::robotInfo; //Namespace for robotInfo msg - SUBSCRIBING
-using minho_team_ros::aiInfo; //Namespace for aiInfo msg - SUBSCRIBING
-using minho_team_ros::goalKeeperInfo; //Namespace for goalKeeperInfo msg - SUBSCRIBING
-using minho_team_ros::interAgentInfo; //Namespace for interAgentInfo msg - SENDING OVER UDP/SUBSCRIBING OVER UDP
-using minho_team_ros::baseStationInfo; //Namespace for baseStationInfo msg - SENDING OVER UDP/SUBSCRIBING OVER UDP
+using mtmsl_common::hardwareInfo; //Namespace for hardwareInfo msg - SUBSCRIBING
+using mtmsl_common::robotInfo; //Namespace for robotInfo msg - SUBSCRIBING
+using mtmsl_common::aiInfo; //Namespace for aiInfo msg - SUBSCRIBING
+using mtmsl_common::goalKeeperInfo; //Namespace for goalKeeperInfo msg - SUBSCRIBING
+using mtmsl_common::interAgentInfo; //Namespace for interAgentInfo msg - SENDING OVER UDP/SUBSCRIBING OVER UDP
+using mtmsl_common::baseStationInfo; //Namespace for baseStationInfo msg - SENDING OVER UDP/SUBSCRIBING OVER UDP
 using std_msgs::UInt8;
-using minho_team_ros::requestReloc; // Namespace for requestReloc service
-using minho_team_ros::requestResetIMU; // Namespace for requestResetIMU service
+using mtmsl_common::requestReloc; // Namespace for requestReloc service
+using mtmsl_common::requestResetIMU; // Namespace for requestResetIMU service
 
 // ###### GLOBAL DATA ######
 // \brief subscriber for hardwareInfo message
@@ -293,9 +293,9 @@ int main(int argc, char **argv)
 	                             1,&robotInfoCallback);
 	gk_sub = coms_node.subscribe(gk_topic_name.str().c_str(),
 	                             1,&goalKeeperInfoCallback);
-    resetIMUService = coms_node.serviceClient<minho_team_ros::requestResetIMU>(reset_name.str().c_str());
+    resetIMUService = coms_node.serviceClient<mtmsl_common::requestResetIMU>(reset_name.str().c_str());
     
-    requestRelocService = coms_node.serviceClient<minho_team_ros::requestReloc>(reloc_name.str().c_str());
+    requestRelocService = coms_node.serviceClient<mtmsl_common::requestReloc>(reloc_name.str().c_str());
     
 	message.agent_id = agent_id;   
 	// for robot agents (1 to NUM_ROBOT_AGENTS) -> 0 to NUM_ROBOT_AGENTS-1

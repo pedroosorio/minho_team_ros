@@ -2,8 +2,8 @@
 #define RSUPSTRIKER_H
 
 #include "role.h"
-#include "minho_team_ros/obstacle.h"
-using minho_team_ros::obstacle;
+#include "mtmsl_common/obstacle.h"
+using mtmsl_common::obstacle;
 
 class RoleSupStriker : public Role
 {

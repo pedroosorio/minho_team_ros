@@ -31,16 +31,16 @@
 #include <signal.h>
 //include ROS
 #include "ros/ros.h"
-#include "minho_team_ros/controlInfo.h" // PUBLISH
-#include "minho_team_ros/robotInfo.h" // SUBSCRIBE
-#include "minho_team_ros/aiInfo.h" // SUBSCRIBE
-#include "minho_team_ros/controlConfig.h" // SUBSCRIBE
-#include "minho_team_ros/requestKick.h" // CALLING SERVICE
-#include "minho_team_ros/segment.h" // CALLING SERVICE
-#include "minho_team_ros/pathData.h" // CALLING SERVICE
-#include "minho_team_ros/position.h"
-#include "minho_team_ros/requestControlConfig.h"
-#include "minho_team_ros/obstacle.h"
+#include "mtmsl_common/controlInfo.h" // PUBLISH
+#include "mtmsl_common/robotInfo.h" // SUBSCRIBE
+#include "mtmsl_common/aiInfo.h" // SUBSCRIBE
+#include "mtmsl_common/controlConfig.h" // SUBSCRIBE
+#include "mtmsl_common/requestKick.h" // CALLING SERVICE
+#include "mtmsl_common/segment.h" // CALLING SERVICE
+#include "mtmsl_common/pathData.h" // CALLING SERVICE
+#include "mtmsl_common/position.h"
+#include "mtmsl_common/requestControlConfig.h"
+#include "mtmsl_common/obstacle.h"
 //include CGAL for Voronoi Diagram
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
 #include <CGAL/Delaunay_triangulation_2.h>
@@ -72,16 +72,16 @@
 using namespace std;
 using namespace ros;
 
-using minho_team_ros::controlInfo;
-using minho_team_ros::robotInfo;
-using minho_team_ros::aiInfo;
-using minho_team_ros::controlConfig;
-using minho_team_ros::requestKick;
-using minho_team_ros::position;
-using minho_team_ros::requestControlConfig;
-using minho_team_ros::segment;
-using minho_team_ros::pathData;
-using minho_team_ros::obstacle;
+using mtmsl_common::controlInfo;
+using mtmsl_common::robotInfo;
+using mtmsl_common::aiInfo;
+using mtmsl_common::controlConfig;
+using mtmsl_common::requestKick;
+using mtmsl_common::position;
+using mtmsl_common::requestControlConfig;
+using mtmsl_common::segment;
+using mtmsl_common::pathData;
+using mtmsl_common::obstacle;
 
 
 //typedef CGAL

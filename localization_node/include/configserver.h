@@ -8,38 +8,38 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
-#include "minho_team_ros/mirrorConfig.h"
-#include "minho_team_ros/visionHSVConfig.h"
-#include "minho_team_ros/imageConfig.h"
-#include "minho_team_ros/requestOmniVisionConf.h"
-#include "minho_team_ros/requestImage.h"
-#include "minho_team_ros/ControlerError.h"
-#include "minho_team_ros/cameraProperty.h"
-#include "minho_team_ros/PID.h"
-#include "minho_team_ros/requestCamProperty.h"
-#include "minho_team_ros/requestCamPID.h"
-#include "minho_team_ros/requestROI.h"
-#include "minho_team_ros/ROI.h"
-#include "minho_team_ros/worldConfig.h"
+#include "mtmsl_common/mirrorConfig.h"
+#include "mtmsl_common/visionHSVConfig.h"
+#include "mtmsl_common/imageConfig.h"
+#include "mtmsl_common/requestOmniVisionConf.h"
+#include "mtmsl_common/requestImage.h"
+#include "mtmsl_common/ControlerError.h"
+#include "mtmsl_common/cameraProperty.h"
+#include "mtmsl_common/PID.h"
+#include "mtmsl_common/requestCamProperty.h"
+#include "mtmsl_common/requestCamPID.h"
+#include "mtmsl_common/requestROI.h"
+#include "mtmsl_common/ROI.h"
+#include "mtmsl_common/worldConfig.h"
 #include "Utils/types.h"
 #include "ros/topic_manager.h"
 #include <QTime>
 #include <vector>
 
 // Config messages
-using minho_team_ros::mirrorConfig;
-using minho_team_ros::visionHSVConfig;
-using minho_team_ros::imageConfig;
-using minho_team_ros::ControlerError;
-using minho_team_ros::cameraProperty;
-using minho_team_ros::PID;
-using minho_team_ros::ROI;
-using minho_team_ros::worldConfig;
+using mtmsl_common::mirrorConfig;
+using mtmsl_common::visionHSVConfig;
+using mtmsl_common::imageConfig;
+using mtmsl_common::ControlerError;
+using mtmsl_common::cameraProperty;
+using mtmsl_common::PID;
+using mtmsl_common::ROI;
+using mtmsl_common::worldConfig;
 
-using minho_team_ros::requestImage;
-using minho_team_ros::requestCamPID;
-using minho_team_ros::requestCamProperty;
-using minho_team_ros::requestROI;
+using mtmsl_common::requestImage;
+using mtmsl_common::requestCamPID;
+using mtmsl_common::requestCamProperty;
+using mtmsl_common::requestROI;
 
 using namespace cv;
 using namespace std;
@@ -112,7 +112,7 @@ private slots:
    void processMirrorConfig(const mirrorConfig::ConstPtr &msg);
    void processVisionConfig(const visionHSVConfig::ConstPtr &msg);
    void processImageConfig(const imageConfig::ConstPtr &msg);
-   bool omniVisionConfService(minho_team_ros::requestOmniVisionConf::Request &req,minho_team_ros::requestOmniVisionConf::Response &res);
+   bool omniVisionConfService(mtmsl_common::requestOmniVisionConf::Request &req,mtmsl_common::requestOmniVisionConf::Response &res);
    void postRequestedImage();
    void init_mock_image();
 
