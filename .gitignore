@@ -2,3 +2,4 @@
 /hardware_node/MinhoTeamHardware/.build/*
 /hardware_node/MinhoTeamHardware/lib/ros_lib/*
 /lib/*
+*/build/*
